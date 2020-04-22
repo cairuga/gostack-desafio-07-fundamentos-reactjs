@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 interface ContainerProps {
   size?: 'small' | 'large';
+  selected?: 'dashboard' | 'import';
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -17,18 +18,26 @@ export const Container = styled.div<ContainerProps>`
     justify-content: space-between;
 
     nav {
+      display: flex;
       a {
         color: #fff;
         text-decoration: none;
         font-size: 16px;
         transition: opacity 0.2s;
+        height: 36px;
 
         & + a {
           margin-left: 32px;
         }
 
-        &:hover {
+        &.other:hover {
           opacity: 0.6;
+        }
+
+        &.selected {
+          font-weight: bold;
+          display: block;
+          border-bottom: 2px solid #ff872c;
         }
       }
     }
